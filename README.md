@@ -4,12 +4,17 @@ This is a Ulauncher extension for generating QR codes.
 
 ## Table of Contents
 
+- [Screenshot](#screenshot)
 - [Installation](#installation)
   - [Requirements](#requirements)
   - [Ulauncher's GUI](#ulaunchers-gui)
   - [Manually from source](#manually-from-source)
 - [Configuration and usage](#configuration-and-usage)
 - [License](#license)
+
+## Screenshot
+
+![Screenshot](screenshot.gif)
 
 ## Installation
 

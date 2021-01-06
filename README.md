@@ -20,11 +20,7 @@ This is a Ulauncher extension for generating QR codes.
 
 ### Requirements
 
-The `qrcode` Python module is required. You can install it with:
-
-```
-pip install qrcode
-```
+The `qrcode` Python module is required. You can install it with: `pip install qrcode`
 
 ### Ulauncher's GUI
 
@@ -35,19 +31,15 @@ pip install qrcode
 
 ### Manually from source
 
-The extensions' directory is located at:
+The extensions' directory is located at: `$HOME/.local/share/ulauncher/extensions`
 
-```
-$HOME/.local/share/ulauncher/extensions
-```
-
-Either download the ZIP archive and unpack it, or just clone the repository there.
+Switch to that location, and just `git clone` this repository inside.
 
 ## Configuration and usage
 
 You can configure the trigger keyword and the popup's height in the extension settings.
 
-To generate a QR code, use the keyword (default is `qr`), then type/paste the desired content, and press enter.
+To generate a QR code, use the keyword (default is `qr`), then type/paste the desired content, and press Enter.
 
 The opened popup image can be scanned with a smartphone, or saved locally (context menu or Ctrl+S).
 

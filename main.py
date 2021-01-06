@@ -31,8 +31,8 @@ class KeywordQueryEventListener(EventListener):
 class ItemEnterEventListener(EventListener):
     def on_event(self, event, extension):
         content = event.get_data()
-        popupHeight = str(extension.preferences["popupHeight"])
-        subprocess.call(["./qr_code_popup.py", content, popupHeight])
+        popupHeight = extension.preferences["popupHeight"]
+        subprocess.call(["./popup.py", content, str(popupHeight)])
 
 
 if __name__ == "__main__":

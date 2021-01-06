@@ -1,0 +1,21 @@
+{
+    "required_api_version": "^2.0.0",
+    "name": "QR Code",
+    "description": "Generate a QR code",
+    "developer_name": "wsdfhjxc",
+    "icon": "images/icon.png",
+    "preferences": [
+        {
+            "id": "keyword",
+            "type": "keyword",
+            "name": "Trigger",
+            "default_value": "qr"
+        },
+        {
+            "id": "popupHeight",
+            "type": "input",
+            "name": "Popup's height (px)",
+            "default_value": 450
+        }
+    ]
+}

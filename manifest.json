@@ -12,10 +12,16 @@
             "default_value": "qr"
         },
         {
-            "id": "popupHeight",
+            "id": "popupSizeMin",
             "type": "input",
-            "name": "Popup's height (px)",
+            "name": "Minimum popup's size (px)",
             "default_value": 450
+        },
+        {
+            "id": "popupSizeMax",
+            "type": "input",
+            "name": "Maximum popup's size (px)",
+            "default_value": 750
         }
     ]
 }

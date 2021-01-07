@@ -31,8 +31,9 @@ class KeywordQueryEventListener(EventListener):
 class ItemEnterEventListener(EventListener):
     def on_event(self, event, extension):
         content = event.get_data()
-        popupHeight = extension.preferences["popupHeight"]
-        subprocess.call(["./popup.py", content, str(popupHeight)])
+        popupSizeMin = extension.preferences["popupSizeMin"]
+        popupSizeMax = extension.preferences["popupSizeMax"]
+        subprocess.call(["./popup.py", str(content), str(popupSizeMin), str(popupSizeMax)])
 
 
 if __name__ == "__main__":

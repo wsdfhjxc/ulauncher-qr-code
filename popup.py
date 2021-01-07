@@ -15,10 +15,12 @@ gi.require_version("GdkPixbuf", "2.0")
 
 from gi.repository import Gdk, GdkPixbuf, Gio, GLib, Gtk
 
-def show(content, popupHeight):
+def show(content, popupSizeMin, popupSizeMax):
+    popupSize = popupSizeMin
+
     window = Gtk.Window()
     window.set_title("Your QR code")
-    window.set_size_request(popupHeight, popupHeight)
+    window.set_size_request(popupSize, popupSize)
     window.set_resizable(False)
 
     if qrcodeModule:
@@ -26,9 +28,11 @@ def show(content, popupHeight):
         qrCodeImageByteArray = io.BytesIO()
         qrCodeImage.save(qrCodeImageByteArray, qrCodeImage.format)
 
+        popupSize = max(popupSizeMin, min(qrCodeImage.height, popupSizeMax))
+
         bytes = GLib.Bytes.new(qrCodeImageByteArray.getvalue())
         pixbuf = GdkPixbuf.Pixbuf.new_from_stream_at_scale(Gio.MemoryInputStream.new_from_bytes(bytes),
-                                                           width=popupHeight, height=popupHeight,
+                                                           width=popupSize, height=popupSize,
                                                            preserve_aspect_ratio=False,
                                                            cancellable=None)
 
@@ -85,6 +89,7 @@ def show(content, popupHeight):
 
         window.connect("button-press-event", clickCallback)
         window.connect("key-press-event", keyPressCallback)
+        window.set_size_request(popupSize, popupSize)
         window.add(qrCodeGtkImage)
 
     else:
@@ -109,8 +114,14 @@ if __name__ == "__main__":
         content = "Nothing to see here"
 
     try:
-        popupHeight = int(sys.argv[2])
+        popupSizeMin = int(sys.argv[2])
     except IndexError:
-        popupHeight = 450
+        popupSizeMin = 450
 
-    show(content, popupHeight)
+    try:
+        popupSizeMax = int(sys.argv[3])
+    except IndexError:
+        popupSizeMax = 750
+
+
+    show(content, popupSizeMin, popupSizeMax)

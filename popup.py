@@ -13,7 +13,7 @@ gi.require_version("Gdk", "3.0")
 gi.require_version("Gtk", "3.0")
 gi.require_version("GdkPixbuf", "2.0")
 
-from gi.repository import Gdk, GdkPixbuf, Gio, GLib, Gtk
+from gi.repository import Gdk, GdkPixbuf, Gio, GLib, GObject, Gtk
 
 def show(content, popupSizeMin, popupSizeMax):
     popupSize = popupSizeMin
@@ -102,7 +102,10 @@ def show(content, popupSizeMin, popupSizeMax):
         window.add(errorLabel)
 
     window.connect("destroy", lambda w: Gtk.main_quit())
+    window.set_keep_above(True)
     window.show_all()
+
+    GObject.timeout_add(1, lambda: window.set_keep_above(False))
 
     Gtk.main()
 

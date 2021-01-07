@@ -6,7 +6,7 @@ from ulauncher.api.shared.action.RenderResultListAction import RenderResultListA
 from ulauncher.api.shared.action.DoNothingAction import DoNothingAction
 from ulauncher.api.shared.action.ExtensionCustomAction import ExtensionCustomAction
 
-import os, subprocess
+import popup, subprocess
 
 
 class QRCodeExtension(Extension):
@@ -30,12 +30,11 @@ class KeywordQueryEventListener(EventListener):
 
 class ItemEnterEventListener(EventListener):
     def on_event(self, event, extension):
-        content = event.get_data()
-        popupSizeMin = extension.preferences["popupSizeMin"]
-        popupSizeMax = extension.preferences["popupSizeMax"]
+        content = str(event.get_data())
+        popupSizeMin = int(extension.preferences["popupSizeMin"])
+        popupSizeMax = int(extension.preferences["popupSizeMax"])
 
-        pathToPopupScript = "%s/popup.py" % os.path.dirname(__file__)
-        subprocess.call([pathToPopupScript, str(content), str(popupSizeMin), str(popupSizeMax)])
+        popup.show(content, popupSizeMin, popupSizeMax)
 
 
 if __name__ == "__main__":

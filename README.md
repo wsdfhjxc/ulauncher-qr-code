@@ -33,15 +33,15 @@ The `qrcode` Python module is required. You can install it with: `pip install qr
 
 The extensions' directory is located at: `$HOME/.local/share/ulauncher/extensions`
 
-Switch to that location, and just `git clone` this repository inside.
+Go to that location, and while being inside, just `git clone` this repository.
 
 ## Configuration and usage
 
-You can configure the trigger keyword and the popup's height in the extension settings.
+You can configure the trigger keyword and the popup's size in the extension's settings.
 
 To generate a QR code, use the keyword (default is `qr`), then type/paste the desired content, and press Enter.
 
-The opened popup image can be scanned with a smartphone, or saved locally (context menu or Ctrl+S).
+The opened popup image can be scanned with a smartphone, or saved locally (context menu or <kbd>Ctrl</kbd><kbd>S</kbd>).
 
 ## License
 

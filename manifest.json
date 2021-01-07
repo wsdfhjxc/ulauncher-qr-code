@@ -15,13 +15,13 @@
             "id": "popupSizeMin",
             "type": "input",
             "name": "Minimum popup's size (px)",
-            "default_value": 450
+            "default_value": 400
         },
         {
             "id": "popupSizeMax",
             "type": "input",
             "name": "Maximum popup's size (px)",
-            "default_value": 750
+            "default_value": 700
         }
     ]
 }

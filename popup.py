@@ -116,12 +116,11 @@ if __name__ == "__main__":
     try:
         popupSizeMin = int(sys.argv[2])
     except IndexError:
-        popupSizeMin = 450
+        popupSizeMin = 400
 
     try:
         popupSizeMax = int(sys.argv[3])
     except IndexError:
-        popupSizeMax = 750
-
+        popupSizeMax = 700
 
     show(content, popupSizeMin, popupSizeMax)

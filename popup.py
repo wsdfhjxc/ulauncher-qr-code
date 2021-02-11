@@ -96,7 +96,8 @@ def show(content, popupSizeMin, popupSizeMax):
         errorLabel = Gtk.Label()
         errorLabel.set_markup("Oops!\n\n"
                               "The   <tt>qrcode</tt>   module is missing...\n\n"
-                              "You can install it with:   <tt>pip install qrcode</tt>")
+                              "You can install it with:   <tt>pip install qrcode</tt>\n\n"
+                              "Afterwards, make sure to remove and re-add the extension.")
         errorLabel.set_justify(Gtk.Justification.CENTER)
 
         window.add(errorLabel)
